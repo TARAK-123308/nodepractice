@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <style>
+    .container1 {
+      width: 350px;
+      height: 500px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid black;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    .c2 {
+      border: 2px solid black;
+      height: 20%;
+      margin: 2px;
+      background-color: lightgray;
+    }
+
+    /* .main {
+      margin-top: 10px;
+      margin-bottom: 500px;
+    } */
+
+    .r1, .r2, .r3, .r4, .r5 {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    } 
+
+    button {
+      flex: 1;
+      padding: 12px;
+      margin: 0 5px;
+      border-radius: 10px;
+      background-color: darkgray;
+      color: black;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* To remove extra margin on first and last button */
+    .r1 button:first-child,
+    .r2 button:first-child,
+    .r3 button:first-child,
+    .r4 button:first-child,
+    .r5 button:first-child {
+      margin-left: 0;
+    }
+
+    .r1 button:last-child,
+    .r2 button:last-child,
+    .r3 button:last-child,
+    .r4 button:last-child,
+    .r5 button:last-child {
+      margin-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <section class="c2"></section>
+    <hr>
+    <div class="main">
+      <div class="r1">
+        <button type="button">C</button>
+        <button type="button">%</button>
+        <button type="button">🔙</button>
+        <button type="button">/</button>
+      </div>
+      <div class="r2">
+        <button type="button">7</button>
+        <button type="button">8</button>
+        <button type="button">9</button>
+        <button type="button">x</button>
+      </div>
+      <div class="r3">
+        <button type="button">4</button>
+        <button type="button">5</button>
+        <button type="button">6</button>
+        <button type="button">-</button>
+      </div>
+      <div class="r4">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">+</button>
+      </div>
+      <div class="r5">
+        <button type="button">🤖</button>
+        <button type="button">0</button>
+        <button type="button">.</button>
+        <button type="button">=</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
