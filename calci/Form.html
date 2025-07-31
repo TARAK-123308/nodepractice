@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+       body{
+            background-color: burlywood;
+
+       }
+      .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+      }
+      form{
+        display: grid;
+        height: 400px;
+        width: 40%;
+        border: 1px solid  black;
+        border-radius: 20px;
+        background-color: bisque;
+        padding: 20px;
+      }
+
+      #email,#password,#password1{
+        width: 90%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        margin-left: 20px;
+      }
+      #submit{
+        padding: 7px;
+        font-size:larger;
+        width: 90%;
+        border-radius: 15px;
+        margin-left: 20px;
+    }
+
+
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="container">
+            <form action="#"  >
+                <div class="form-group">
+                    <center><h1>sign up </h1></center>
+                    <input type="email" name="email" id="email" placeholder="Enter your email id" required><br>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
+                    <input type="password" name="confirm password" id="password1" placeholder="Confirm your password" required><br>
+                    <input type="submit" value="submit" id="submit" class="btn btn-primary">
+                </div>
+            </form>
+    </div>
+    <script>
+        const submit = document.getElementById('submit');
+        submit.addEventListener('submit',(e)=>{
+            e.preventDefault();
+          const mainpwd = document.getElementById('password');
+          const confirmpwd = document.getElementById('password1');
+          const email = document.getElementById('email');
+          console.log(mainpwd.value)
+          console.log(confirmpwd.value)
+          if(mainpwd.value === ""){
+            alert("please enter some text")
+          }
+
+          const hasUppercase = /[A-Z]/.test(mainpwd.value);
+          const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(mainpwd.value);
+          const numbers = /[0-9]/.test(mainpwd.value);
+
+          if(!hasUppercase || !hasSpecialChar || mainpwd.value.length < 8 || !numbers){
+            alert("The password should include a Uppercase letter and a special character and lenght should be greater than 8 ")
+          }
+
+          if(mainpwd.value !== confirmpwd.value){
+            alert("entered password and confirm password should be same");
+          }
+          else if(hasUppercase && hasSpecialChar && mainpwd.value.length >= 8 && mainpwd.value === confirmpwd.value && numbers){
+            alert("Signup Success");
+          }
+          mainpwd.value = "";
+          confirmpwd.value = "";
+          email.value = "";
+
+        })
+       
+    </script>
+</body>
+</html>
