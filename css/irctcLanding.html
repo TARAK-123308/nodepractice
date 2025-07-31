@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+body{
+      margin: 0px;
+
+    }
+    .Main{
+      grid-area: Main;
+    }
+#div2{
+      grid-area: Main;
+      height: 100vh;
+      width: 100vw;
+       background-size: cover;
+       background-position: center;
+      background-image: url(irctc.jpeg);  
+      background-repeat: no-repeat;
+}
+.Header{
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #ffff;
+    color: red;
+    font-size: 24px;
+    height:90px;
+    padding: 15px;
+    border: 1px solid #ffff;
+    display: inline-block;
+}
+.Header1{
+    grid-area: header;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    height:90px;
+    padding: 15px;
+    padding-right: 25px;
+}
+.container{
+    display: grid;
+    grid-template-areas: "header"
+                          "Main";
+}
+form{
+    position: relative;
+    top: -170px;
+    margin-left: 50px;
+    width: 500px;
+    padding: 5px;
+    height: 55vh;
+    background-color: #ffff;
+}
+#input1{
+            width: 45%;
+            padding:15px;
+            background-color: rgb(4, 4, 82);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 0px;
+            font-size: 17px;
+}
+#input2{
+            width: 53%;
+            padding:15px;
+            background-color: rgb(4, 4, 82);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 17px;
+}
+#from{
+            width: 50%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+}
+#date{
+            width: 30%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+}
+#to{
+        width: 50%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+}
+#All_Classes{
+        width: 35%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+}
+#General{
+       width: 55%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+}
+#last1{
+            width: 45%;
+            padding:15px;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 0px;
+            font-size: 17px;
+}
+#last2{
+            width: 50%;
+            padding:15px;
+            background-color:orange;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 0px;
+            font-size: 17px;
+}
+
+h1{
+    color: blueviolet;
+}
+#boxs{
+   font-size: 20px;
+}
+ input[type="checkbox"] {
+      transform: scale(1.5); 
+      margin-right: 10px;
+    }
+#para{
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 500px;
+    padding: 5px;
+    height: 20vh;
+    background-color: #ffff;
+    position: relative;
+    top: -170px;
+}
+#headings{
+    display: grid;
+    place-items: end;
+    font-size: 70px;
+    margin-top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 80px;
+    color: rgb(9, 9, 136);
+} 
+#headings1{
+    display: grid;
+    place-items: end;
+    font-size: 40px;
+    margin-top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 95px;
+    color: rgb(9, 9, 136);
+}
+</style>
+<body>
+    <div class="container" id="Main">
+        <div id="div1" class="Header">
+            <img src="secondry-logo.png" alt="logo"> 
+        </div>
+          <div id="logo" class="Header1"> <img src="logo.png" alt="logo" id="logo"></div>
+        <div id="div2">
+            <label for="headings" id="headings"><b>INDIAN RAILWAYS</b></label>
+            <label for="headings" id="headings1">Safety | Security | Panctuality</label>
+            <form action="#">
+                <input type="button" value="PNR STATUS" id="input1">
+                <input type="button" value="CHARTS/VACANCY" id="input2">
+                <center><h1>BOOK TICKET</h1></center>
+                <div ><input type="text" value="from" placeholder="From" id="from">
+                <input type="date" name="date" id="date" id="from"></div>
+                <div>
+                    <input type="text" placeholder="To" id="to">
+                    <select id="All_Classes" name="All Classes">
+                    <option value="disabled selected">All Classes</option>
+                    <option value="Anubhuti Class (EA)">Anubhuti Class (EA)</option>
+                    <option value="AC First Class (1A)">AC First Class (1A)</option>
+                    <option value="Vistadome AC (EV)">Vistadome AC (EV)</option>
+                    <option value="AC 2 Tier (2A)">AC 2 Tier (2A)</option>
+                    <option value="First Class (FC)">First Class (FC)</option>
+                    </select>
+                </div>
+                <div >
+                    <select id="General" name="General">
+                    <option value="disabled selected">GENERAL</option>
+                    <option value="LADIES(EA)">LADIES(EA)(EA)</option>
+                    <option value="LOWER BERTH/SR.CITIZEN">LOWER BERTH/SR.CITIZEN</option>
+                    <option value="PERSON WITH DISABILITY">PERSON WITH DISABILITY</option>
+                    <option value="DUTY PASS">DUTY PASS</option>
+                    <option value="TATKAL">TATKAL</option>
+                    <option value="PREMIUM TATKAL">First Class (FC)</option>
+                    </select>
+                </div>
+                <div id="boxs">
+                    <label for="checkbox"><input type="checkbox" name="checkbox" id="none">Person With Disability Concession</label>
+                    <label for="checkbox"><input type="checkbox" name="checkbox" id="none">Flexible With Date</label><br><br>
+                    <label for="checkbox"><input type="checkbox" name="checkbox" id="none">Train with Available Berth</label>
+                    <label for="checkbox"><input type="checkbox" name="checkbox" id="none">Railway Pass Concession</label>
+                </div>
+                <br>
+                <input type="button" value="Search" id="last1">
+                <input type="button" value="Easy Booking on AskDISHA"id="last2">
+            </form>
+            <div id="para"><p style="color:blue">Customers can use enhanced interface for their IRCTC related queries!!</p>
+            <a href="linkhttps://equery.irctc.co.in"></a></p>
+       <p style="color: red;"> Customer Care Numbers : 14646/08044647999 /08035734999</p>
+        <p style="color: blue;">BEWARE OF FRAUDSTERS: Always download official IRCTC Rail Connect App from the</p>
+            <p style="color: blue;"> Google Play Store or Apple App Store only.</p></div>
+        </div>
+        <div id="div3" class="Footer"></div>
+    </div>
+</body>
+</html>

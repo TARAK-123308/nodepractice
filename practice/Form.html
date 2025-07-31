@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <input type="text" name="name" id="name">
+        <button type="submit" id="submit">submit</button>
+    </form>
+
+    <script>
+       const textInput = document.getElementById('name');
+       const submit = document.getElementById('submit');
+
+       submit.addEventListener('click',(e) => {
+        e.preventDefault();
+        const text1 = textInput.value.trim();
+        if(text1 === ""){
+            alert("Enter some text");
+        } else if(text1.length < 6){
+            alert("Must be greater than 6");
+        } else{
+            alert(text1)
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            height: 100vh;
+            width: 100vw;
+            display:flex;
+            border: 5px solid black;
+            align-items:center;
+            justify-content: space-around;
+        }
+        .main2{
+            height: 90%;
+            border: 3px solid black;
+            width: 90vw;
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 10px;
+        }
+        .box{
+            height: 93%;
+            border: 3px solid black;
+            padding: 10px;
+            margin: 10px;
+            min-width: 320px;
+
+        }
+        #mini2{
+            background-color: rgb(230, 168, 52);
+            width: 40%;
+        }
+        #mini3{
+            width: 60%;
+        }
+        #logo{
+          padding: 0px;
+          height: 40px;  
+          margin-left:25px;
+          margin-top: 25px;
+        } 
+        #heading{
+            font-size:40px;
+            font-weight: bold;
+        }
+        .divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed #ccc;
+  margin: 0 10px;
+}
+
+.divider span {
+  color: #666;
+  font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main2" id="mini1">
+        <div class="box" id="mini2">
+           <img src="logo.png" alt="image" id="logo">
+        </div>
+        <div class="box" id="mini3">
+            <form action="#">
+                <span id="heading">Login</span><br>
+                <input type="text" placeholder="Login with Google">
+                <input type="text" placeholder="Login with Linked in">
+                <div class="divider">
+                <span>Or login with email</span>
+                </div>
+            </form>
+        </div>
+        </div>
+        
+    </div>
+</body>
+</html>

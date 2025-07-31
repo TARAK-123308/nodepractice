@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body{
+        background-color:rgba(132, 59, 6, 0.363) ;
+    }
+    .container {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        height: auto;
+        width: 500px;
+        border: 5px solid rgb(242, 237, 237);
+        border-radius: 30px;
+        margin-top: 250px;
+        color: rgb(0, 21, 255);
+        background-color: rgba(246, 252, 252, 0.534);
+    }
+
+    #taskcontainer li {
+        margin-right: 100px;
+        list-style-type: none;
+        padding: 10px;
+        font-size: 2rem;
+    }
+
+    #taskcontainer span {
+        display: inline-block;
+        align-items: center;
+        margin-right: 50px;
+        justify-content: space-between;
+     }
+
+    #taskcontainer button {
+        margin-left: 10px;
+    }
+    #icon{
+        color: white;
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-fluid">
+            <h2>To Do List &nbsp;<i class="fa-solid fa-clipboard-list"></i></h2>
+            <input type="text" placeholder="" id="inputTask">
+            <button type="submit" id="submit">AddTask</button>
+        </div>
+        <ul id="taskcontainer">
+
+        </ul>
+    </div>
+    <script>
+        const inputtxt = document.getElementById('inputTask');
+        const AddTask = document.getElementById('submit');
+        const list = document.getElementById('taskcontainer');
+
+        AddTask.addEventListener('click', () => {
+            const text = inputtxt.value.trim();
+            if (text === "") {
+                alert("Enter some text:");
+                return;
+            }
+
+            const task = document.createElement('li');
+            const span = document.createElement('span');
+            const deleteb = document.createElement('button');
+            deleteb.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            deleteb.addEventListener('click',()=>{
+                list.removeChild(task);
+            })
+            span.addEventListener('click',()=>{
+                span.style.color='green';
+            span.innerHTML =  `<i class="fa-regular fa-square-check"></i> ${text}`;
+            })
+            span.innerHTML = `<i class="fa-regular fa-square"></i> ${text}`;
+            task.appendChild(span);
+            list.appendChild(task);
+            task.appendChild(deleteb);
+            inputtxt.value = "";
+
+            
+        });
+    </script>
+
+</body>
+
+</html>

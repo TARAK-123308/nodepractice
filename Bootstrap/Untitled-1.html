@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chandrahas</h1>
+
+</body>
+<script>
+    let s = parseInt(prompt("Enter a number : "));
+    // for(let i = 1;i <= 10;i++){
+    //     document.write(`${s} * ${i} = ${s * i}<br>`)
+    // }
+    let m = 35;
+    while(true){
+
+        if(m == s){
+            window.alert("you Won")
+            break;
+        }
+        else if(m > s){
+            window.alert("you guess is so low")
+            s = parseInt(prompt("Enter a number : "));
+        }
+        else if(m < s){
+            window.alert("you guess is so high")
+            s = parseInt(prompt("Enter a number : "));
+        }
+    }
+    
+</script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+          border: 5px double black;
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          height: 100vh;
+          width: 100vw;
+          background-color: coral;
+        }
+        .main2{
+          border: 5px solid rgb(11, 11, 11);
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          position: relative;
+          background-color: rgb(9, 198, 255);
+          width: 70vw;
+          height:70vh;
+          margin: 10px 10px;
+
+        }
+        .box1{
+         border: 5px double red;
+         display: flex;
+         width: 25%;
+         margin: 5px 5px;
+         background-color: cornsilk;
+         position: relative;
+         top: 50px;
+         left: 100px;
+        }
+        .box2{
+         border: 5px double red;
+         display: flex;
+         width: 25%;
+         margin: 5px 5px;
+        background-color: rgb(241, 246, 247);
+        position: fixed;
+
+        }
+        .box3{
+         border: 5px double red;
+         display: flex;
+         width: 25%;
+         margin: 5px 5px;
+       background-color: aquamarine;
+       position: static;
+       height:50px;
+       width: 250px;
+
+        }
+        .box4{
+             border: 5px double red;
+         display: flex;
+         width: 25%;
+         margin: 5px 5px;
+         background-color: darkgrey;
+         position: absolute;
+         top: 0%;
+
+        }
+        .box5{
+             border: 5px double red;
+         display: flex;
+         width: 25%;
+         margin: 5px 5px; 
+         background-color: forestgreen;
+         position:sticky;
+        }
+       
+        @media screen and (min-width:1000px){
+            body{
+                background-color: aqua;
+                font-size: xx-large;
+                color: black;
+            }
+            .main{
+                display: flex;
+                flex: 1 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+<div class="main2">
+    <div class="box1">
+    <ol>
+        <li>One</li>
+        
+    </ol>
+</div>
+    <div class="box2">
+        <ol>
+        <li>Two</li>
+       
+    </ol>
+    </div>
+    <div class="box3">
+        <ol>
+      
+        <li>Three</li>
+    </ol>
+    </div>
+    <div class="box4">
+        <ol>
+
+        <li>Four</li>
+    </ol>
+    </div><div class="box5">
+        <ol>
+
+        <li>Five</li>
+    </ol>
+    </div>
+    </div>
+    </div>
+    
+    
+</body>
+</html>

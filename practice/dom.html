@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 5px solid blueviolet;
+      height: 25vh;
+      width: 50vw;
+      margin: 10px;
+      padding: 10px;
+    }
+    button{
+        height: 50px;
+        width: 50px;
+        margin: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button id="one">one</button>
+    <button id="Two">Two</button>
+    <button id="Three">Three</button>
+    <button id="Four">Four</button>
+    <button id="Five">Five</button>
+  </div>
+  <div class="container"></div>
+  <div class="container1"></div>
+
+  <script>
+    const buttons = document.querySelectorAll('.container button');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        console.log(`Button ${button.innerHTML} Clicked`);
+      });
+    });
+
+  const container = document.querySelectorAll('.container'); 
+  const newPara = document.createElement('p');            
+  newPara.innerHTML = "This is a new paragraph.";       
+  container[1].appendChild(newPara); 
+
+
+  </script>
+
+</body>
+</html>

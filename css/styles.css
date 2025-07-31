@@ -1,0 +1,94 @@
+*{
+           margin-top: 50px;
+            padding: 0%;
+            background-color: aliceblue;
+
+        }
+        h1{
+            color: blue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 65px;
+            text-align: center;
+        }
+        p{
+            font-size: 30px;
+            display: inline-block;
+        }
+        form{
+            background-color: #ffff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            align-items: center;
+            display: flex;
+            flex-wrap: nowrap;
+            height:max-content;
+            width: 300px;
+            flex-direction: column;
+            padding:30px;
+        }
+        input[type=password]{
+           padding: 10px;
+           margin: 10px;
+           border: 1px solid #ccc;
+           border-radius: 5px;
+           width:90%;
+
+        }
+        input[type=email]{
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type = submit]{
+          width: 90%;
+          padding: 10px;
+          background-color: #007bff ;color:white;
+          border-radius: 5px;
+        }
+        button{
+            width: 75%;
+            padding:15px;
+            background-color: #42b72a;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+   #items2{
+     text-align: center;
+   }
+   #items3{
+          margin-top: 25px;
+            margin-bottom: 25px;
+            /* margin-left: 23% */
+   }
+   a{
+    text-decoration: none;
+    background-color: #ffff;
+   }
+ @media screen and (max-width:1920px){
+    .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0%;
+    }
+    #item3{
+        margin-left: 0;
+    }
+ }
+ @media screen and (max-width:800px){
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-evenly;
+        padding: 25%;
+        position: absolute;
+        margin: 0%; */
+    }
+     #item3{
+        margin-left: 0;
+    }
+ }

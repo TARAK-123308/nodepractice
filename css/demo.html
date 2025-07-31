@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .grid-container{
+            display: grid;
+            grid-template-areas: "header header"
+                                 "sidebar  Main"
+                                 "Footer Footer";
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 60px 1fr;
+            height: 100vh;
+            width: 100vw;
+        }
+        .Header{
+            grid-area: header;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: red;
+            font-size: 24px;
+        }
+        .Footer{
+            grid-area: Footer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: red;
+            font-size: 50px;
+        }
+        .sidebar{
+            grid-area: sidebar;
+            padding: 20px;
+            background-color: rgb(154, 197, 235);
+            font-size: xx-large;
+        }
+        .Main{
+            grid-area:Main;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 20px;
+        }
+        .box{
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: rgba(165, 42, 42, 0.566);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="Header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="Main">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        </div>
+        <div class="Footer">Footer</div>
+
+    </div>
+</body>
+</html>
