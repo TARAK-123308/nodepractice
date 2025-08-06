@@ -44,12 +44,19 @@ function brush() {
   });
 }
 
-wakeup()
-  .then(() => brush())
-  .then(() => breakfast())
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    console.log("Done");
-  });
+// wakeup()
+//   .then(() => brush())
+//   .then(() => breakfast())
+//   .catch((err) => {
+//     console.log(err);
+//   })
+//   .finally(() => {
+//     console.log("Done");
+//   });
+
+async function dailyactivity() {
+    await wakeup();
+    await brush();
+    await breakfast();
+}
+dailyactivity();
