@@ -1,20 +1,29 @@
- :root {
+@import "tailwindcss";
+
+:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(31, 29, 29, 0.87);
-  background-color: #ebe1e1;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -22,18 +31,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-.Hai{
-  border: 2px solid black;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  background-color: chocolate;
-  color: aliceblue;
-  min-width: 75vw;
-  display: flex;
-  align-items: center;
-  justify-content:center ;
-  text-align: center;
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -52,32 +55,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.Bye{
-border: 2px solid beige;
-padding: 50px;
-margin: 5px 5px 5px 5px;
-}
-input[type="text"]{
-padding: 10px;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -90,10 +67,4 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
-}
-.Hai{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} 
+} */
