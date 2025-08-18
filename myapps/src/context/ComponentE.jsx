@@ -4,7 +4,7 @@ function ComponentE({Username}) {
   return (
    <div>
       <h1>ComponentE</h1>
-      <p>Username={Username}</p>
+      <p>{Username}</p>
     </div>
   )
 }
