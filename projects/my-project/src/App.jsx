@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import RecipeList from "./components/RecipeList";
 import Body from "./components/Body";
 import Forms from "./components/Forms";
-
+import useCounter from "./useCounter";
 function App() {
   const [recipes, setRecipies] = useState([
     {
@@ -99,10 +99,13 @@ function App() {
         "Heat oil in a wok, sauté garlic and vegetables on high flame. Add cooked rice, soy sauce, vinegar, salt, and pepper. Stir-fry until everything is mixed and heated through.",
     },
   ]);
-  const addRecipie = (newRecepie) => {
+const {count, increment, decrement} = useCounter(10);
+
+
+ const addRecipie = (newRecepie) => {
     setRecipies([...recipes, newRecepie]);
   };
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   return (
     <div>
       <h1>My Recipe Collection</h1>
@@ -110,9 +113,12 @@ function App() {
         {show ? "Hide" : "AddRecipie"}
       </button>
 
-      {show && <Forms onAddRecipe={addRecipie} />}
+      {show && <Forms onAddRecipe={addRecipie} />} 
       <RecipeList recipes={recipes} />
       {/* <Body/> */}
+      <h1>count : {count}</h1>
+      <button onClick={increment}>Add</button>&nbsp;&nbsp;&nbsp;
+      <button onClick={decrement}>sub</button>
     </div>
   );
 }
