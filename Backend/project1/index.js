@@ -17,7 +17,7 @@ app.get("/about",(req,res)=>{
 
 app.get("/user",(req,res)=>{
     console.log(req.url,req.method);
-    res.send("<h1>Welcome to Home page</h1>");
+    res.send("<h1>Welcome to user page</h1>");
 })
 
 app.listen(port,()=>{
