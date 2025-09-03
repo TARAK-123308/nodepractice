@@ -4,7 +4,8 @@ const userReciepe = new mongoose.Schema({
     name:{type:String, required: true},
     description:{type:String, required: true},
     ingredients:{type:Object},
-    instructions:{type:String, required: true}
-})
+    instructions:{type:String, required: true},
+    createdBy:{type: mongoose.Types.ObjectId, ref: "User"}
+},{timestamps:true})
 
 exports.Reciepe = mongoose.model("Reciepe",userReciepe)
