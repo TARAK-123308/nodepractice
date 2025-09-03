@@ -1,0 +1,239 @@
+const express = require('express');
+
+const jwt = require('jsonwebtoken');
+
+require('dotenv').config();
+
+const User = require('../Models/User');
+
+const { hash, compare } = require('bcrypt');
+
+const SECRET_KEY = process.env.ACCESS_TOKEN || "WITHOUTTOKEN" ;
+
+// Getting users
+
+const getUsers = async (req, res, next) => {
+
+    try {
+
+        const users = await User.find();
+
+        if (!users || users.length === 0) {
+
+            return res.status(404).json({ message: "No users" });
+
+        }
+
+        res.status(200).json(users);
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
+}
+
+// Adding user
+
+const postUser = async (req, res, next) => {
+
+    try {
+
+        const { name, email, password, gender, mobile } = req.body;
+
+        const existing = await User.findOne({ email });
+
+        if (existing) {
+
+            return res.status(409).json({ message: "Email already in use" });
+
+        }
+
+
+        if (!name || !email || !password || !gender || !mobile) {
+
+            return res.status(400).json({ message: "Name, Email, Password, Gender and Mobile are required details" });
+
+        }
+
+        const newUser = new User({
+
+            name,
+            email,
+            password: await hash(password, 12),
+            gender,
+            mobile
+
+        })
+
+        await newUser.save();
+
+        res.status(201).json(newUser);
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
+}
+
+// Update user
+
+const updateUser = async (req, res, next) => {
+
+    try {
+
+        const { name, email, password, gender, mobile } = req.body;
+
+        if (!name || !email || !password || !gender || !mobile) {
+
+            return res.status(400).json({ message: "Name, Email, Password, Gender and Mobile are required details" });
+
+        }
+
+        const user = await User.findOne({ email: email });
+
+        if (!user) {
+
+            return res.status(404).json({ message: `User with email '${email}' not found` });
+
+        }
+
+        const match = await compare(password, user.password);
+
+        if (!match) {
+
+            return res.status(401).json({ message: `Incorrect Password for ${email} `});
+
+        }
+
+        const updatedUser = { name, email, password: user.password, gender, mobile };
+
+        await User.updateOne({ email: email }, { $set: updatedUser });
+
+        res.status(200).json({ message: 'User Updated' });
+
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
+}
+
+// Deleting user
+
+const deleteUser = async (req, res, next) => {
+
+    try {
+
+        const userEmail = req.params.email;
+
+        const user = await User.findOne({ email: userEmail });
+
+        if (!user) {
+
+            return res.status(404).json({ message: `User with email-id '${userEmail}' not found `});
+
+        }
+
+        await User.deleteOne({ email: userEmail });
+
+        res.status(200).json({ message: `User with email-id '${userEmail}' deleted `})
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
+}
+
+// Logging into Pages
+
+const login = async ( req , res , next ) => {
+
+    try {
+        
+        const { email , password } = req.body ;
+
+        if ( !email || !password ) {
+
+            return res.status(400).json({message:"Email and Password are required"});
+            
+        }
+
+        const user = await User.findOne({email:email});
+
+        if ( !user ) {
+
+            return res.status(404).json({message:"Details not Found"});
+            
+        }
+
+        const match = await compare( password , user.password );
+
+        if ( !match ) {
+
+            return res.status(401).json({message:"Incorrect Password"});
+            
+        }
+
+        const accessToken = jwt.sign(
+
+            { userId : user._id , email : user.email } ,
+
+            SECRET_KEY ,
+
+            { expiresIn : "10m" }
+
+        )
+
+        res.status(200).json({message:"success",accessToken,user:user});
+
+    } catch (error) {
+        
+        next(error);
+
+    }
+
+}
+
+// Getting user by email
+
+const userByEmail = async ( req , res , next ) => {
+
+    try {
+
+        console.log("hello")
+        
+        const email = req.params.email ;
+
+        if ( !email ) {
+
+            return res.status(400).json({message:"Id is required to get user-data"});
+            
+        }
+
+        const user = await User.findOne({email:email});
+
+        if ( !user ) {
+
+            return res.status(404).json({message:`User not found with email-id ${email}`});
+            
+        }
+
+        res.status(200).json({message:"User Found",user:user});
+
+    } catch (error) {
+
+        next(error);
+        
+    }
+
+}
+
+module.exports = { getUsers, postUser, updateUser, deleteUser , login , userByEmail };

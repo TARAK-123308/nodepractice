@@ -1,6 +1,10 @@
 const { ObjectId } = require("mongodb");
 const { UserCollection } = require("../Db_Connection");
+const bcrypt = require("bcrypt");
 
+const saltRounds = 10; // standard cost factor
+
+// Get all users
 exports.getUsers = async (req, res) => {
   try {
     const users = await UserCollection().find().toArray();
@@ -11,6 +15,7 @@ exports.getUsers = async (req, res) => {
   }
 };
 
+// Get user by ID
 exports.getUserByID = async (req, res) => {
   try {
     const id = req.params.id;
@@ -26,13 +31,30 @@ exports.getUserByID = async (req, res) => {
   }
 };
 
+// Register new user (with bcrypt)
 exports.registerUser = async (req, res) => {
   try {
-    const user = req.body;
-    if (!user) {
-      return res.status(400).json({ message: "User data is missing" });
+    const { name, email, password, ...rest } = req.body;
+
+    if (!password) {
+      return res.status(400).json({ message: "User password is missing" });
     }
-    const { insertedId } = await UserCollection().insertOne(user); 
+    if (!email) {
+      return res.status(400).json({ message: "User email is missing" });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // Create user object
+    const user = {
+      name,
+      email,
+      password: hashedPassword, // store hashed password
+      ...rest,
+    };
+
+    const { insertedId } = await UserCollection().insertOne(user);
     res.status(201).json({ message: "Success", userId: insertedId });
   } catch (err) {
     console.error("Error registering user:", err);
@@ -40,10 +62,11 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// Delete user
 exports.deleteUser = async (req, res) => {
   try {
     const id = new ObjectId(req.params.id);
-    const result = await UserCollection().deleteOne({ _id: id }); 
+    const result = await UserCollection().deleteOne({ _id: id });
     res.json({ message: "Deleted", result });
   } catch (err) {
     console.error("Error deleting user:", err);
@@ -51,6 +74,7 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+// Extra routes
 exports.Home = (req, res) => res.send("<h1>Home page</h1>");
 exports.About = (req, res) => res.send("<h1>About page</h1>");
 exports.User = (req, res) => res.send("<h1>User page</h1>");

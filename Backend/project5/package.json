@@ -1,5 +1,5 @@
 {
-  "name": "project-3",
+  "name": "project5",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,9 +13,12 @@
   "type": "commonjs",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.19.0",
+    "mongoose": "^8.18.0",
     "nodemon": "^3.1.10"
   }
 }
