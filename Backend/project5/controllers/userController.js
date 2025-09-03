@@ -5,8 +5,9 @@ const SECRET_KEY = process.env.JWT_SECRET || "mysecret";
 
 
 
-exports.getUsers = (req, res)=>{
-    res.status(200).json({message:"Success"})
+exports.getUsers = async (req, res)=>{
+    const users = await User.find();
+    res.status(200).json({message:"Success",user:users})
 }
 
 exports.registerUser = async(req, res)=>{
@@ -19,8 +20,9 @@ exports.registerUser = async(req, res)=>{
         gender, 
         mobile
     })
+    const accessToken = jwt.sign({userId:newUser._id,userEmail:newUser.email},SECRET_KEY,{expiresIn:"1h"})
     await newUser.save();
-    res.status(201).json({message:"Success", newUser})
+    res.status(201).json({message:"Success",accessToken, newUser})
 }
 
 
